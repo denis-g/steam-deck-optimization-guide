@@ -2,7 +2,7 @@
 
 # Steam Deck Optimization Guide
 
-This guide contains descriptions of settings and utilities for safely improving the performance, and useful information for advanced Steam Deck users.
+This guide contains descriptions of settings and utilities for safely improving the performance, and useful information for advanced Steam Deck users. All settings supported **LCD** and **OLED** versions.
 
 ---
 
@@ -22,7 +22,7 @@ This guide contains descriptions of settings and utilities for safely improving 
   - [CryoUtilities](#cryoutilities)
   - [VRAM](#vram)
   - [BTRFS](#btrfs)
-  - [40 FPS/Hz](#40-fpshz)
+  - [40 FPS](#40-fps)
   - [GE-Proton](#ge-proton)
   - [In-Game Settings](#in-game-settings)
 - [References](#references)
@@ -90,7 +90,7 @@ First, to install homebrew apps, you need to enable `Developer Mode`:
 
 ### Beta Channel
 
-Now, one thing you are going to want to do is move to the beta channel. The reason is that Valve is constantly pushing out updates and new features (like a stable 40 FPS now, and many more), and being in the beta channel ensures you get all the latest updates as they're released.
+Now, one thing you are going to want to do is move to the beta channel. The reason is that Valve is constantly pushing out updates and new features, and being in the beta channel ensures you get all the latest updates as they're released.
 
 To enable the `Beta Channel`, follow these steps:
 1. Switch your Steam Deck to `Gaming Mode`
@@ -187,7 +187,6 @@ curl -L https://github.com/SteamDeckHomebrew/decky-installer/releases/latest/dow
 ![Decky](assets/homebrew-decky.jpg)
 
 Recommended plugins:
-- `vibrantDeck` — adjust color settings
 - `DeckSettings` — browse recommended game settings
 - `HLTB for Deck` — show game lengths according to [HowLongToBeat](https://howlongtobeat.com)
 - `ProtonDB Badges` — show tappable [ProtonDB](https://www.protondb.com) badges on your game pages
@@ -254,9 +253,11 @@ To change the VRAM size needed to run UEFI (aka BIOS):
 
 ![Steam Deck UEFI](assets/tweaks-vram.jpg)
 
-> 🔴 Games not compatible with this setting:
+> 🔴 **Attention**: Games not compatible with this setting:
 > 
 > - **Red Dead Redemption 2**
+
+> ⚠️ **Warning**: This setting reset to default after the UEFI update.
 
 ----
 
@@ -272,7 +273,7 @@ To change the VRAM size needed to run UEFI (aka BIOS):
   ![Steam Deck with 4Gb VRAM](assets/tweaks-btrfs-compare.jpg)
 </details>
 
-> ⚠️ **Warning**: Before installation **read all information on the repo** about this tweak and potential problems like a free space available, and can't go back to ext4 after the conversion process, flatpak issues...
+> 🔴 **Attention**: Before installation **read all information on the repo** about this tweak and potential problems like a free space available, and can't go back to ext4 after the conversion process, flatpak issues...
 
 To install `SteamOS-Btrfs`:
 1. Switch your Steam Deck to `Desktop Mode`
@@ -293,9 +294,13 @@ rm -rf "$t"
 
 ---
 
-### 40 FPS/Hz
+### 40 FPS
 
-Although 60 FPS provides the best gaming experience, it's not always feasible due to the game's inability to sustain it or the draining of battery life. In such cases, a lower option like 30 FPS is preferred. While 40 FPS may appear closer to 30 FPS, it's not the case. A 60 FPS game refreshes every 16.7 ms, a 30 FPS game refreshes every 33.3 ms, and a 40 FPS game refreshes every 25 ms.
+Although 60 FPS provides the best gaming experience, it's not always feasible due to the game's inability to sustain it or the draining of battery life. In such cases, a lower option like 30 FPS is preferred. While 40 FPS may appear closer to 30 FPS, it's not the case.
+
+- **60 FPS** – game refreshes every **16.7 ms**
+- **40 FPS** – game refreshes every **25 ms**
+- **30 FPS** – game refreshes every **33.3 ms**
 
 By doing the math, one can see that 40 FPS is precisely in the middle between 30 and 60 FPS. The quicker a game updates, the more improvement there is in input lag, leading to a smoother visual experience. <sup>[Digital Foundry Test](https://www.youtube.com/watch?v=GF8NzlBiaOM)<sup>
 

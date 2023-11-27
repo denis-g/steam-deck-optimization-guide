@@ -187,9 +187,10 @@ curl -L https://github.com/SteamDeckHomebrew/decky-installer/releases/latest/dow
 ![Decky](assets/homebrew-decky.jpg)
 
 Recommended plugins:
-- `DeckSettings` — browse recommended game settings
-- `HLTB for Deck` — show game lengths according to [HowLongToBeat](https://howlongtobeat.com)
-- `ProtonDB Badges` — show tappable [ProtonDB](https://www.protondb.com) badges on your game pages
+- `AutoSuspend` – automatically suspend on low power
+- `DeckSettings` – browse recommended game settings
+- `HLTB for Deck` – show game lengths according to [HowLongToBeat](https://howlongtobeat.com)
+- `ProtonDB Badges` – show tappable [ProtonDB](https://www.protondb.com) badges on your game pages
 
 ---
 
@@ -215,10 +216,10 @@ To install `CryoUtilities`:
 3. Download the `.desktop` file into your Desktop
 4. Double-click `Install CryoUtilities` icon on Desktop
 
-Alternatively, you can install `CryoUtilities` via console:
+Alternatively, you can download installer `CryoUtilities` on Desktop via console:
 
 ```shell
-curl -L https://raw.githubusercontent.com/CryoByte33/steam-deck-utilities/main/install.sh | sh
+curl -s -L https://raw.githubusercontent.com/CryoByte33/steam-deck-utilities/main/InstallCryoUtilities.desktop -o /home/deck/Desktop/InstallCryoUtilities.desktop
 ```
 
 And run the `CryoUtilities` installer:

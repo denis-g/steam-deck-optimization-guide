@@ -23,8 +23,9 @@ This guide contains descriptions of settings and utilities for safely improving 
   - [VRAM](#vram)
   - [BTRFS](#btrfs)
   - [40 FPS](#40-fps)
-  - [GE-Proton](#ge-proton)
-  - [In-Game Settings](#in-game-settings)
+  - [ProtonUp-Qt](#protonup-qt)
+  - [Protontricks](#protontricks)
+- [In-Game Settings](#in-game-settings)
 - [References](#references)
 
 ---
@@ -316,11 +317,11 @@ To set the `Framerate Limit`:
 
 ---
 
-### GE-Proton
-
-> GE-Proton is a bleeding-edge version of Steam's Proton. It adds many patches and fixes ahead of main Proton releases.
+### ProtonUp-Qt
 
 > ProtonUp-Qt is a simple and great way to manage the likes of GE-Proton (previously known as Proton GE), the Luxtorpeda compatibility tool for Native Linux game engines and more.
+
+[![](https://flat.badgen.net/badge/icon/protontricks?icon=github&label)](https://github.com/Matoking/protontricks)
 
 Install `ProtonUp-Qt`:
 1. Switch Steam Deck on `Desktop Mode`
@@ -328,9 +329,18 @@ Install `ProtonUp-Qt`:
 3. Run `Discover` app
 4. Type on searchbox `proton`
 5. Select `ProtonUp-Qt` and click `Install`
-6. Open application menu and select `Utilities`
-7. Run `ProtonUp-Qt` app
-8. Click `Add version`, select latest version, and click `Install`
+
+Alternatively, you can install `ProtonUp-Qt` via console:
+
+```shell
+sudo flatpak install flathub net.davidotek.pupgui2 -y
+```
+
+For install latest Proton version:
+
+1. Open application menu and select `Utilities`
+2. Run `ProtonUp-Qt` app
+3. Click `Add version`, select latest version, and click `Install`
 
 ![ProtonUp-Qt](assets/tweaks-ge-proton-app-01.jpg)
 
@@ -352,25 +362,58 @@ Via the `ProtonUp-Qt` app:
 
 ---
 
-### In-Game Settings
+### Protontricks
 
-#### ● Anti-Aliasing
+> This is a wrapper script that allows you to easily run Winetricks commands for Steam Play/Proton games among other common Wine features, such as launching external Windows executables. This is often useful when a game requires closed-source runtime libraries or applications that are not included with Proton.
+
+[![](https://flat.badgen.net/badge/icon/protontricks?icon=github&label)](https://github.com/Matoking/protontricks)
+
+Install `Protontricks`:
+1. Switch Steam Deck on `Desktop Mode`
+2. Open application menu and select `Utilities`
+3. Run `Discover` app
+4. Type on searchbox `proton`
+5. Select `Protontricks` and click `Install`
+
+Alternatively, you can install `Protontricks` via console:
+
+```shell
+sudo flatpak install flathub com.github.Matoking.protontricks -y
+```
+
+Sometimes it is necessary to install or update software in a container with a specific game.
+
+For example, update the old `Uplay Launcher` to the new `Ubisoft Connect` for the correct launch of the game:
+1. Open application menu and select `Utilities`
+2. Run `Protontricks` app
+3. Select your game and click `OK`
+4. Select `Install an application` and click `OK`
+5. Scroll down, select `Uplay` and click `OK`
+6. `Next > Next > Finish` and wait when application install
+
+![ProtonUp-Qt](assets/tweaks-protontricks-01.jpg)
+
+---
+
+## In-Game Settings
+
+### ● Anti-Aliasing
 
 If possible, set it to FXAA or TAA. SSAA or MSAA are mostly not recommended because they consume a lot of power.
 
-#### ● Screen Space Reflections
+### ● Screen Space Reflections
 
 Reduce all reflections to the lowest possible settings. They are usually expensive to process.
 
-#### ● Ambient Occlusion
+### ● Ambient Occlusion
 
 This one is a bit tricky, as it is heavily dependent on the algorithm used. Try playing with the settings to see what works best for your game.
 
-#### ● Tessellation
+### ● Tessellation
 
 Turn it off, as many game engines and developers misuse it, causing a lot of stress on the GPU. It won't be missed on an 800p screen.
 
-#### ● Shadows
+### ● Shadows
 
 Shadows can also be very resource-intensive, depending on how they are rendered. This is another setting you should try lowering first.
 

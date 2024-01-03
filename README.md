@@ -245,7 +245,7 @@ By default, the Steam Deck uses 1GB of VRAM. This means the CPU will use the rem
 
 To change the VRAM size needed to run UEFI (aka BIOS):
 1. Turn off your Steam Deck
-2. Hold the <kbd>Volume Up (+)</kbd> and <kbd>Power</kbd> buttons
+2. Hold the <kbd>Volume Up (+)</kbd> button and turn on Steam Deck
 3. Wait for UEFI to load
 4. Click `Setup Utility` icon
 5. Click `Advanced` tab

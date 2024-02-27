@@ -24,7 +24,9 @@ This guide contains descriptions of settings and utilities for safely improving 
   - [BTRFS](#btrfs)
   - [40 FPS](#40-fps)
   - [ProtonUp-Qt](#protonup-qt)
+- [Enhanced](#enhanced)
   - [Protontricks](#protontricks)
+  - [Cabextract](#cabextract)
 - [In-Game Settings](#in-game-settings)
 - [References](#references)
 
@@ -220,7 +222,7 @@ To install `CryoUtilities`:
 Alternatively, you can download installer `CryoUtilities` on Desktop via console:
 
 ```shell
-curl -s -L https://raw.githubusercontent.com/CryoByte33/steam-deck-utilities/main/InstallCryoUtilities.desktop -o /home/deck/Desktop/InstallCryoUtilities.desktop
+curl -s -L "https://raw.githubusercontent.com/CryoByte33/steam-deck-utilities/main/InstallCryoUtilities.desktop" -o "$HOME/Desktop/InstallCryoUtilities.desktop"
 ```
 
 And run the `CryoUtilities` installer:
@@ -289,7 +291,7 @@ Alternatively, you can install `SteamOS-Btrfs` via console:
 
 ```shell
 t="$(mktemp -d)"
-curl -sSL https://gitlab.com/popsulfr/steamos-btrfs/-/archive/main/steamos-btrfs-main.tar.gz | tar -xzf - -C "$t" --strip-components=1
+curl -sSL "https://gitlab.com/popsulfr/steamos-btrfs/-/archive/main/steamos-btrfs-main.tar.gz" | tar -xzf - -C "$t" --strip-components=1
 "$t/install.sh"
 rm -rf "$t"
 ```
@@ -362,6 +364,8 @@ Via the `ProtonUp-Qt` app:
 
 ---
 
+## Enhanced
+
 ### Protontricks
 
 > This is a wrapper script that allows you to easily run Winetricks commands for Steam Play/Proton games among other common Wine features, such as launching external Windows executables. This is often useful when a game requires closed-source runtime libraries or applications that are not included with Proton.
@@ -392,6 +396,79 @@ For example, update the old `Uplay Launcher` to the new `Ubisoft Connect` for th
 6. `Next > Next > Finish` and wait when application install
 
 ![ProtonUp-Qt](assets/tweaks-protontricks-01.jpg)
+
+---
+
+### Cabextract
+
+> Cabextract is Free Software for extracting Microsoft cabinet files, also called .CAB files.
+
+For install `cabextract` into your system:
+1. Switch Steam Deck on `Desktop Mode`
+2. Open the application menu and select `System`
+3. Run the `Konsole` app
+
+Type this command and hit <kbd>Enter</kbd>:
+
+```shell
+sudo steamos-readonly disable
+```
+
+Enter your password when prompted. Also needed to type all the below commands:
+
+
+```shell
+sudo pacman-key --init
+sudo pacman-key -u
+sudo pacman-key --populate
+sudo pacman -S cabextract
+```
+
+After is completed type this command and hit <kbd>Enter</kbd> again:
+
+```shell
+sudo steamos-readonly enable
+```
+
+---
+
+Alternatively, it is needed to install `cabextract` for a specific game. For example, this is needed to fix skipping all cutscenes and videos in `Darksiders: Warmastered Edition`.
+
+1. Switch Steam Deck on `Desktop Mode`
+2. Open `Firefox` and go to [https://gitlab.com/steevyp/mf-installcab_steamdeck](https://gitlab.com/steevyp/mf-installcab_steamdeck)
+3. Download the `.zip` source code archive file into your Downloads directory
+4. Extract the `.zip` file
+
+Alternatively, you can download `.zip` and extract the file via console:
+
+```shell
+curl -s -L "https://gitlab.com/steevyp/mf-installcab_steamdeck/-/archive/main/mf-installcab_steamdeck-main.zip" -o "$HOME/Downloads/mf-installcab_steamdeck-main.zip"
+unzip -o "$HOME/Downloads/mf-installcab_steamdeck-main.zip" -d "$HOME/Downloads"
+```
+
+1. Open the application menu and select `System`
+2. Run the `Konsole` app
+
+Type this command and hit <kbd>Enter</kbd>:
+
+```shell
+PROTON="$HOME/.steam/root/steamapps/common/Proton 8.0" && \
+WINEPREFIX="$HOME/steam/root/steamapps/compatdata/462780/pfx" ./install-mf-64.sh -proton
+```
+
+And wait when application install.
+
+1. Copy `mfplat.dll` to installed game directory
+2. Switch your Steam Deck to `Gaming Mode`
+3. Change the Proton version to `8.0` for a game
+
+Alternatively, you can copy `mfplat.dll` file via console:
+
+```shell
+cp "$HOME/Downloads/mf-installcab_steamdeck-main/mfplat.dll" "$HOME/.steam/steam/steamapps/common/Darksiders Warmastered Edition/mfplat.dll"
+```
+
+> **Note**: `462780` is ID for `Darksiders: Warmastered Edition` game.
 
 ---
 
@@ -431,6 +508,7 @@ Community:
 - [r/SteamDeck](https://www.reddit.com/r/SteamDeck)
 - [PCGamingWiki](https://www.pcgamingwiki.com/wiki/Steam_Deck)
 - [Steam Deck Guide](https://github.com/mikeroyal/Steam-Deck-Guide)
+- [protondb](https://www.protondb.com)
 
 ---
 

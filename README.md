@@ -19,12 +19,14 @@ This guide contains descriptions of settings and utilities for safely improving 
 - [Homebrew](#homebrew)
   - [Decky](#decky)
 - [Tweaks](#tweaks)
+  - [SteamOS optimization](#steamos-optimization)
   - [CryoUtilities](#cryoutilities)
   - [VRAM](#vram)
   - [BTRFS](#btrfs)
   - [40 FPS](#40-fps)
   - [ProtonUp-Qt](#protonup-qt)
 - [Enhanced](#enhanced)
+  - [Locale](#locale)
   - [Protontricks](#protontricks)
   - [Cabextract](#cabextract)
 - [In-Game Settings](#in-game-settings)
@@ -178,7 +180,7 @@ To install `Decky`:
 Alternatively, you can install `Decky` via console:
 
 ```shell
-curl -L https://github.com/SteamDeckHomebrew/decky-installer/releases/latest/download/install_release.sh | sh
+curl -L https://github.com/SteamDeckHomebrew/decky-installer/releases/latest/download/install_prerelease.sh | sh
 ```
 
 ...and go to `Decky`:
@@ -201,7 +203,30 @@ Recommended plugins:
 
 These are basic settings for additional optimization.
 
+### SteamOS optimization
+
+> Collection of SteamOS tweaks to improve Steam Deck performance by **A.T.B.**
+
+[![](https://flat.badgen.net/badge/icon/article?icon=medium&label)](https://medium.com/@a.b.t./here-are-some-possibly-useful-tweaks-for-steamos-on-the-steam-deck-fcb6b571b577)
+
+To apply tweaks:
+1. Switch your Steam Deck to `Desktop Mode`
+2. Open the application menu and select `System`
+3. Run the `Konsole` app
+
+And run script via console:
+```shell
+curl -L https://raw.githubusercontent.com/denis-g/steam-deck-optimization-guide/master/scripts/steamos_optimization.sh | sh
+```
+
+
 ### CryoUtilities
+
+> [!NOTE]
+> At the moment CryoUtilities is not actually for SteamOS version 3.6 and higher <sup>[details](https://github.com/CryoByte33/steam-deck-utilities/issues/179)</sup>.
+
+<details>
+  <summary>Old guide:</summary>
 
 > Scripts and utilities to enhance the Steam Deck experience — swap tuner, memory parameters and storage manager optimized.
 
@@ -232,6 +257,7 @@ And run the `CryoUtilities` installer:
 4. Select `Recommended Settings`
 
 ![CryoUtilities](assets/tweaks-cryoutilities.jpg)
+</details>
 
 ---
 
@@ -366,6 +392,18 @@ Via the `ProtonUp-Qt` app:
 
 ## Enhanced
 
+### Locale
+
+Some third party apps or games must be launched with the specific locale and not language running on your system.
+
+For example, japanese apps must be launched with `JA-JP` locale:
+1. Switch your Steam Deck to `Gaming Mode` or `Desktop Mode`
+2. Select your app or game
+3. Go to `Settings`
+4. Change `Launch Options` to `LANG=ja_JP.UTF-8 %command%` 
+
+---
+
 ### Protontricks
 
 > This is a wrapper script that allows you to easily run Winetricks commands for Steam Play/Proton games among other common Wine features, such as launching external Windows executables. This is often useful when a game requires closed-source runtime libraries or applications that are not included with Proton.
@@ -415,7 +453,6 @@ sudo steamos-readonly disable
 ```
 
 Enter your password when prompted. Also needed to type all the below commands:
-
 
 ```shell
 sudo pacman-key --init

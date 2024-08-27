@@ -73,6 +73,7 @@ To return to `Gaming Mode`:
 
 To show the keyboard on `Desktop Mode` and `Gaming Mode`, use the <kbd>Steam</kbd> + <kbd>X</kbd> button combination.
 
+> [!TIP]
 > Hold the <kbd>Steam</kbd> button on `Gaming Mode` to see a list of all available shortcuts.
 
 ---
@@ -156,7 +157,8 @@ Now, on your computer, you should be able to access your Steam Deck terminal wit
 ssh deck@steamdeck.local
 ```
 
-> **Note**: If your router is not catching up with the domain name, you must type the Steam Deck's IP address manually instead of the `steamdeck.local`.
+> [!TIP]
+> If your router is not catching up with the domain name, you must type the Steam Deck's IP address manually instead of the `steamdeck.local`.
 > 
 > You can easily check the IP address by typing `ip addr` on the `Konsole` app.
 
@@ -214,23 +216,24 @@ To apply tweaks:
 2. Open the application menu and select `System`
 3. Run the `Konsole` app
 
-And run script via console:
+Run script via console:
 ```shell
 curl -L https://raw.githubusercontent.com/denis-g/steam-deck-optimization-guide/master/scripts/steamos_optimization.sh | sh
 ```
 
+Enter your password when prompted.
 
 ### CryoUtilities
+
+> Scripts and utilities to enhance the Steam Deck experience — swap tuner, memory parameters and storage manager optimized.
+
+[![](https://flat.badgen.net/badge/icon/steam-deck-utilities?icon=github&label)](https://github.com/CryoByte33/steam-deck-utilities)
 
 > [!NOTE]
 > At the moment CryoUtilities is not actually for SteamOS version 3.6 and higher <sup>[details](https://github.com/CryoByte33/steam-deck-utilities/issues/179)</sup>.
 
 <details>
   <summary>Old guide:</summary>
-
-> Scripts and utilities to enhance the Steam Deck experience — swap tuner, memory parameters and storage manager optimized.
-
-[![](https://flat.badgen.net/badge/icon/steam-deck-utilities?icon=github&label)](https://github.com/CryoByte33/steam-deck-utilities)
 
 <details>
   <summary>Compare results:</summary>
@@ -283,11 +286,12 @@ To change the VRAM size needed to run UEFI (aka BIOS):
 
 ![Steam Deck UEFI](assets/tweaks-vram.jpg)
 
-> 🔴 **Attention**: Games not compatible with this setting:
-> 
+> [!WARNING]
+> Games not compatible with this setting:
 > - **Red Dead Redemption 2**
 
-> ⚠️ **Warning**: This setting reset to default after the UEFI update.
+> [!IMPORTANT]
+> This setting reset to default after the UEFI update.
 
 ----
 
@@ -303,7 +307,8 @@ To change the VRAM size needed to run UEFI (aka BIOS):
   ![Steam Deck with 4Gb VRAM](assets/tweaks-btrfs-compare.jpg)
 </details>
 
-> 🔴 **Attention**: Before installation **read all information on the repo** about this tweak and potential problems like a free space available, and can't go back to ext4 after the conversion process, flatpak issues...
+> [!CAUTION]
+> Before installation **read all information on the repo** about this tweak and potential problems like a free space available, and can't go back to ext4 after the conversion process, flatpak issues...
 
 To install `SteamOS-Btrfs`:
 1. Switch your Steam Deck to `Desktop Mode`
@@ -378,7 +383,8 @@ Via the `ProtonUp-Qt` app:
 
 ![Change Proton version on ProtonUp-Qt](assets/tweaks-ge-proton-app-02.jpg)
 
-> ⚠️ **Warning**: Close the Steam app before changes!
+> [!WARNING]
+> Close the Steam app before changes!
 
 ...or change via the `Steam` app: 
 
@@ -505,7 +511,8 @@ Alternatively, you can copy `mfplat.dll` file via console:
 cp "$HOME/Downloads/mf-installcab_steamdeck-main/mfplat.dll" "$HOME/.steam/steam/steamapps/common/Darksiders Warmastered Edition/mfplat.dll"
 ```
 
-> **Note**: `462780` is ID for `Darksiders: Warmastered Edition` game.
+> [!NOTE]
+> `462780` is ID for `Darksiders: Warmastered Edition` game.
 
 ---
 

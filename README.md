@@ -82,13 +82,11 @@ To show the keyboard on `Desktop Mode` and `Gaming Mode`, use the <kbd>Steam</kb
 
 ### Developer Mode
 
-First, to install homebrew apps, you need to enable `Developer Mode`:
+To access certain advanced settings, you need to enable `Developer Mode`:
 1. Switch your Steam Deck to `Gaming Mode`
 2. Press <kbd>Steam</kbd> button and select `Settings`
 3. Scroll down and click `Developer`
 4. Enable `Developer Mode`
-5. Scroll down and enable `CEF Remote Debugging`
-6. Restart your Steam Deck when prompted
 
 ![Enabled Developer Mode on Steam Deck](assets/settings-dev-mode.jpg)
 

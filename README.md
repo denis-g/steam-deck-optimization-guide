@@ -19,8 +19,7 @@ This guide contains descriptions of settings and utilities for safely improving 
 - [Homebrew](#homebrew)
   - [Decky](#decky)
 - [Tweaks](#tweaks)
-  - [SteamOS optimization](#steamos-optimization)
-  - [CryoUtilities](#cryoutilities)
+  - [SDWEAK](#sdweak)
   - [VRAM](#vram)
   - [BTRFS](#btrfs)
   - [40 FPS](#40-fps)
@@ -40,7 +39,7 @@ This guide contains descriptions of settings and utilities for safely improving 
 
 This is an optimized mode for launching your games, similar to Big Picture on PC.
 
-![Steam Deck Gaming Mode](assets/basic-gaming-mode.jpg) 
+![Steam Deck - Gaming Mode](assets/basic-gaming-mode.jpg) 
 
 ---
 
@@ -48,7 +47,7 @@ This is an optimized mode for launching your games, similar to Big Picture on PC
 
 In this mode, SteamOS is installed (based on the [Arch Linux](https://archlinux.org/) distribution with [KDE Plasma](https://kde.org/plasma-desktop/) as the desktop environment), and you have the full PC experience — connect keyboard/mouse/devices, install any apps, use a console, and many more...
 
-![Steam Deck Desktop Mode](assets/basic-desktop-mode.jpg)
+![Steam Deck - Desktop Mode](assets/basic-desktop-mode.jpg)
 
 ---
 
@@ -61,7 +60,7 @@ To switch to `Desktop Mode`, follow these steps:
 2. Scroll and click `Switch to Desktop`
 3. Restart your Steam Deck when prompted
 
-![Switch Mode on Steam Deck](assets/basic-switch-mode.jpg)
+![Switch to Desktop Mode on Steam Deck](assets/basic-switch-mode.jpg)
 
 To return to `Gaming Mode`: 
 - Restart your Steam Deck
@@ -85,10 +84,10 @@ To show the keyboard on `Desktop Mode` and `Gaming Mode`, use the <kbd>Steam</kb
 To access certain advanced settings, you need to enable `Developer Mode`:
 1. Switch your Steam Deck to `Gaming Mode`
 2. Press <kbd>Steam</kbd> button and select `Settings`
-3. Scroll down and click `Developer`
-4. Enable `Developer Mode`
+3. Scroll up and click `System`
+4. Enable `Enable Developer Mode`
 
-![Enabled Developer Mode on Steam Deck](assets/settings-dev-mode.jpg)
+![Enable Developer Mode on Steam Deck](assets/settings-dev-mode-beta-channel.jpg)
 
 ---
 
@@ -101,10 +100,10 @@ To enable the `Beta Channel`, follow these steps:
 2. Press <kbd>Steam</kbd> button and select `Settings`
 3. Scroll up and click `System`
 4. Change `System Update Channel` to `Beta`
-5. Change `OS Update Channel` to `Steam Deck Beta`
+5. Apply the update when needed
 6. Restart your Steam Deck when prompted
 
-![Change update channel on Steam Deck](assets/settings-beta-channel.jpg)
+![Change update channel on Steam Deck](assets/settings-dev-mode-beta-channel.jpg)
 
 ---
 
@@ -122,7 +121,10 @@ Type this command and hit <kbd>Enter</kbd>:
 passwd
 ```
 
-Type your new password (*typed characters do not appear on the screen!*) and hit <kbd>Enter</kbd>. After retyping the password, hit <kbd>Enter</kbd> again.
+Type your new password and hit <kbd>Enter</kbd>. After retyping the password, hit <kbd>Enter</kbd> again.
+
+> [!TIP]
+> Typed characters do not appear on the screen!
 
 ![Set Root Password on Steam Deck](assets/settings-root-password.jpg)
 
@@ -149,6 +151,8 @@ After that, run this command to start the server immediately:
 sudo systemctl start sshd
 ```
 
+![Enable SSH on Steam Deck](assets/settings-ssh.jpg)
+
 Now, on your computer, you should be able to access your Steam Deck terminal with this command and type password:
 
 ```shell
@@ -172,9 +176,9 @@ ssh deck@steamdeck.local
 
 To install `Decky`:
 1. Switch your Steam Deck to `Desktop Mode`
-2. Open `Firefox` and go to [https://deckbrew.xyz](https://deckbrew.xyz)
-3. Download the `.desktop` file into your Desktop
-4. Double-click the `Install Decky` icon on Desktop
+2. Open `Firefox` and go to [https://decky.xyz](https://decky.xyz)
+3. Download the `.desktop` file into your Download folder
+4. Double-click the `Decky Installer` file
 5. Enter your password when prompted
 
 Alternatively, you can install `Decky` via console:
@@ -187,15 +191,17 @@ curl -L https://github.com/SteamDeckHomebrew/decky-installer/releases/latest/dow
 1. Switch your Steam Deck to `Gaming Mode`
 2. Press the <kbd>...</kbd> button
 3. Select `Decky`
-4. Install plugins <sup>[preview](https://beta.deckbrew.xyz)</sup>
+4. Install plugins <sup>[preview](https://plugins.deckbrew.xyz)</sup>
 
-![Decky](assets/homebrew-decky.jpg)
+![Decky on Steam Deck](assets/homebrew-decky.jpg)
 
 Recommended plugins:
 - `AutoSuspend` – automatically suspend on low power
-- `DeckSettings` – browse recommended game settings
 - `HLTB for Deck` – show game lengths according to [HowLongToBeat](https://howlongtobeat.com)
 - `ProtonDB Badges` – show tappable [ProtonDB](https://www.protondb.com) badges on your game pages
+- `SteamGridDB` – customize your library with user-submitted images
+- `MagicPods` – monitor the battery level of your *AirPods*, *Beats* and *Galaxy Buds* and switch between noise cancellation modes
+- `WiFi Locker` – lock WiFi to a specific access point to prevent background scanning
 
 ---
 
@@ -203,62 +209,31 @@ Recommended plugins:
 
 These are basic settings for additional optimization.
 
-### SteamOS optimization
+### SDWEAK
 
-> Collection of SteamOS tweaks to improve Steam Deck performance by **A.T.B.**
+> Increases minimum, maximum, and average FPS. Improves smoothness, responsiveness, and frame timing. Reduces stutters and micro-freezes. Enhances system performance under heavy RAM load. Significantly improves process scheduling. Overall, optimizes system performance for a better gaming experience.
 
-[![](https://flat.badgen.net/badge/icon/article?icon=medium&label)](https://medium.com/@a.b.t./here-are-some-possibly-useful-tweaks-for-steamos-on-the-steam-deck-fcb6b571b577)
+[![](https://flat.badgen.net/badge/icon/SDWEAK?icon=github&label)](https://github.com/Taskerer/SDWEAK)
 
-To apply tweaks:
+To install `SDWEAK`:
 1. Switch your Steam Deck to `Desktop Mode`
 2. Open the application menu and select `System`
 3. Run the `Konsole` app
 
-Run script via console:
 ```shell
-curl -L https://raw.githubusercontent.com/denis-g/steam-deck-optimization-guide/master/scripts/steamos_optimization.sh | sh
+sudo steamos-readonly disable
 ```
 
-Enter your password when prompted.
-
-### CryoUtilities
-
-> Scripts and utilities to enhance the Steam Deck experience — swap tuner, memory parameters and storage manager optimized.
-
-[![](https://flat.badgen.net/badge/icon/steam-deck-utilities?icon=github&label)](https://github.com/CryoByte33/steam-deck-utilities)
-
-> [!NOTE]
-> At the moment CryoUtilities is not actually for SteamOS version 3.6 and higher <sup>[details](https://github.com/CryoByte33/steam-deck-utilities/issues/179)</sup>.
-
-<details>
-  <summary>Old guide:</summary>
-
-<details>
-  <summary>Compare results:</summary>
-
-  ![CryoUtilities compare](assets/tweaks-cryoutilities-compare.png)
-</details>
-
-To install `CryoUtilities`:
-1. Switch your Steam Deck to `Desktop Mode`
-2. Open `Firefox` and go to [https://github.com/CryoByte33/steam-deck-utilities#install](https://github.com/CryoByte33/steam-deck-utilities#install)
-3. Download the `.desktop` file into your Desktop
-4. Double-click `Install CryoUtilities` icon on Desktop
-
-Alternatively, you can download installer `CryoUtilities` on Desktop via console:
+Enter your password when prompted. And run script via console:
 
 ```shell
-curl -s -L "https://raw.githubusercontent.com/CryoByte33/steam-deck-utilities/main/InstallCryoUtilities.desktop" -o "$HOME/Desktop/InstallCryoUtilities.desktop"
+rm -f SDWEAK.zip && wget https://github.com/Taskerer/SDWEAK/releases/latest/download/SDWEAK.zip && rm -rf SDWEAK && unzip SDWEAK.zip && cd SDWEAK && sudo --preserve-env=HOME ./install.sh
 ```
 
-And run the `CryoUtilities` installer:
-1. Open the application menu and select `Utilities`
-2. Run the `CryoUtilities` app
-3. Enter your password when prompted
-4. Select `Recommended Settings`
+![SDWEAK on Steam Deck](assets/tweaks-sdweak.jpg)
 
-![CryoUtilities](assets/tweaks-cryoutilities.jpg)
-</details>
+> [!WARNING]
+> After updating SteamOS, you must reinstall SDWEAK. 
 
 ---
 
@@ -269,7 +244,7 @@ By default, the Steam Deck uses 1GB of VRAM. This means the CPU will use the rem
 <details>
   <summary>Compare results:</summary>
 
-   ![Steam Deck with 4Gb VRAM](assets/tweaks-vram-compare.png)
+   ![Steam Deck with 4Gb VRAM](assets/tweaks-vram-compare.jpg)
 </details>
 
 To change the VRAM size needed to run UEFI (aka BIOS):
@@ -320,7 +295,7 @@ Alternatively, you can install `SteamOS-Btrfs` via console:
 
 ```shell
 t="$(mktemp -d)"
-curl -sSL "https://gitlab.com/popsulfr/steamos-btrfs/-/archive/main/steamos-btrfs-main.tar.gz" | tar -xzf - -C "$t" --strip-components=1
+curl -sSL https://gitlab.com/popsulfr/steamos-btrfs/-/archive/main/steamos-btrfs-main.tar.gz | tar -xzf - -C "$t" --strip-components=1
 "$t/install.sh"
 rm -rf "$t"
 ```
@@ -342,7 +317,6 @@ To set the `Framerate Limit`:
 2. Press the <kbd>...</kbd> button
 3. Select `Perfomance`
 4. Scroll down and set the `Framerate Limit` to `40`
-5. Set the `Refresh Rate` to `40`
 
 ![Force 40 FPS on Steam Deck](assets/tweaks-40fps.jpg)
 
@@ -352,7 +326,7 @@ To set the `Framerate Limit`:
 
 > ProtonUp-Qt is a simple and great way to manage the likes of GE-Proton (previously known as Proton GE), the Luxtorpeda compatibility tool for Native Linux game engines and more.
 
-[![](https://flat.badgen.net/badge/icon/protontricks?icon=github&label)](https://github.com/Matoking/protontricks)
+[![](https://flat.badgen.net/badge/icon/ProtonUp-Qt?icon=github&label)](https://github.com/DavidoTek/ProtonUp-Qt)
 
 Install `ProtonUp-Qt`:
 1. Switch Steam Deck on `Desktop Mode`
@@ -367,30 +341,30 @@ Alternatively, you can install `ProtonUp-Qt` via console:
 sudo flatpak install flathub net.davidotek.pupgui2 -y
 ```
 
-For install latest Proton version:
+For install the latest Proton version:
 
 1. Open application menu and select `Utilities`
 2. Run `ProtonUp-Qt` app
-3. Click `Add version`, select latest version, and click `Install`
+3. Click `Add version`, select the latest version, and click `Install`
 
-![ProtonUp-Qt](assets/tweaks-ge-proton-app-01.jpg)
+![ProtonUp-Qt](assets/tweaks-protonup-qt-01.jpg)
 
 Now, if you need to change the Proton version for a game, you can do so in three ways.
 
 Via the `ProtonUp-Qt` app:
 
-![Change Proton version on ProtonUp-Qt](assets/tweaks-ge-proton-app-02.jpg)
+![Change Proton version on ProtonUp-Qt](assets/tweaks-protonup-qt-02.jpg)
 
 > [!WARNING]
 > Close the Steam app before changes!
 
 ...or change via the `Steam` app: 
 
-![Change Proton version on Steam](assets/tweaks-ge-proton-steam-01.jpg)
+![Change Proton version on Steam](assets/tweaks-protonup-qt-03.jpg)
 
 ...or change on `Gaming Mode`: 
 
-![Change Proton version on Steam](assets/tweaks-ge-proton-steam-02.jpg)
+![Change Proton version on Steam](assets/tweaks-protonup-qt-04.jpg)
 
 ---
 

@@ -217,18 +217,10 @@ These are basic settings for additional optimization.
 
 To install `SDWEAK`:
 1. Switch your Steam Deck to `Desktop Mode`
-2. Open the application menu and select `System`
-3. Run the `Konsole` app
-
-```shell
-sudo steamos-readonly disable
-```
-
-Enter your password when prompted. And run script via console:
-
-```shell
-rm -f SDWEAK.zip && wget https://github.com/Taskerer/SDWEAK/releases/latest/download/SDWEAK.zip && rm -rf SDWEAK && unzip SDWEAK.zip && cd SDWEAK && sudo --preserve-env=HOME ./install.sh
-```
+2. Open `Firefox` and go to [https://github.com/Taskerer/SDWEAK/blob/main/README_ENG.md#installation-steps](https://github.com/Taskerer/SDWEAK/blob/main/README_ENG.md#installation-steps)
+3. Download the `.desktop` file into your Desktop
+4. Double-click this icon on Desktop
+5. Enter your password when prompted
 
 ![SDWEAK on Steam Deck](assets/tweaks-sdweak.jpg)
 
